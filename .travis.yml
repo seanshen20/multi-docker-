@@ -8,14 +8,14 @@ script:
     - docker run -e CI=true sean/react-test npm test -- --coverage
 
 after_success:
-    - docker build -t seanshen/multi-client ./client
-    - docker build -t seanshen/multi-nginx ./nginx
-    - docker build -t seanshen/multi-server ./server
-    - docker build -t seanshen/multi-worker ./worker
+    - docker build -t seanshen20/multi-client ./client
+    - docker build -t seanshen20/multi-nginx ./nginx
+    - docker build -t seanshen20/multi-server ./server
+    - docker build -t seanshen20/multi-worker ./worker
 # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # take images and push them to docker hub
-    - docker push seanshen/multi-client
-    - docker push seanshen/multi-nginx
-    - docker push seanshen/multi-server
-    - docker push seanshen/multi-worker
+    - docker push seanshen20/multi-client
+    - docker push seanshen20/multi-nginx
+    - docker push seanshen20/multi-server
+    - docker push seanshen20/multi-worker
